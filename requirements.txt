@@ -2,6 +2,6 @@ flask==2.0.1
 requests==2.25.1
 numpy==1.24.3
 werkzeug==2.2.3
-tensorflow==2.13.0  # O la versione che stai utilizzando
+tensorflow==2.17.1  # O la versione che stai utilizzando
 gunicorn==20.1.0    # Necessario per il deploy su Render
 
