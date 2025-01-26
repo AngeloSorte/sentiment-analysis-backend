@@ -18,9 +18,27 @@ def predict(input_data):
     prediction = model.predict(input_array)
     return prediction[0][0]  # Cambia questa parte per adattarla alla tua previsione
 
-@app.route('/')
+@app.route("/")
 def home():
-    return "Server is running!"
+    return """
+    <html>
+        <head>
+            <style>
+                body {
+                    background-color: white; /* Cambia il colore a quello che preferisci */
+                    color: black;
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    margin-top: 20%;
+                }
+            </style>
+        </head>
+        <body>
+            <h1>Server is running</h1>
+        </body>
+    </html>
+    """
+
 
 # Route per fare previsioni
 @app.route('/predict', methods=['POST'])
