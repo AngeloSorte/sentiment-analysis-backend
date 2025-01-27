@@ -9,6 +9,8 @@ from flask_cors import CORS
 # Inizializza Flask app
 app = Flask(__name__)
 
+CORS(app, origins=["https://truthseekers1983.wixstudio.com/aaitextgenerator/blank-1"])
+
 # Carica il modello salvato
 model = load_model('sentiment_analysis_model.h5')
 
