@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 import numpy as np
 import os
+from flask_cors import CORS
 
 
 # Inizializza Flask app
