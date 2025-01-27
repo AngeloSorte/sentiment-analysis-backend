@@ -4,4 +4,4 @@ numpy==1.24.3
 werkzeug==2.2.3
 tensorflow-cpu==2.17.1
 gunicorn==20.1.0    # Necessario per il deploy su Render
-
+flask-cors
