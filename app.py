@@ -8,8 +8,8 @@ from flask_cors import CORS
 
 # Inizializza Flask app
 app = Flask(__name__)
-# Configura il CORS per consentire richieste dal tuo dominio Wix
-CORS(app, resources={r"/predict": {"origins": "https://truthseekers1983-wixstudio-com.filesusr.com"}})
+CORS(app)  # Rimuovi qualsiasi restrizione alle origini
+
 
 
 # Carica il modello salvato
