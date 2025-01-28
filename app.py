@@ -48,15 +48,25 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict_route():
     try:
-        data = request.get_json()  # Ricevi i dati inviati dal frontend
-        input_data = data['input']  # Cambia il nome della chiave se necessario
-        
-        # Previsioni
+        data = request.get_json()
+        input_data = data['input']
         result = predict(input_data)
-        
-        return jsonify({'prediction': result})  # Restituisci la previsione come JSON
+        response = jsonify({'prediction': result})
+        response.headers.add('Access-Control-Allow-Origin', '*')  # Consente tutte le origini
+        return response
     except Exception as e:
-        return jsonify({'error': str(e)}), 400
+        response = jsonify({'error': str(e)})
+        response.headers.add('Access-Control-Allow-Origin', '*')  # Consente tutte le origini
+        return response, 400
+
+@app.route('/predict', methods=['OPTIONS'])
+def options():
+    response = jsonify({'message': 'Options allowed'})
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+    return response
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
